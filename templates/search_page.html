@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.4.1-dist/css/bootstrap.min.css"/>
+<style>
+    .td{
+        width: 300px;
+        height: 400px;
+        text-align: center;
+    }
+    td{
+        padding-right: 30px;
+    }
+    tr{
+        display:block;
+        margin-bottom:20px;
+    }
+    .store_img{
+        width: 260px;
+        height: 300px;
+    }
+    .title{
+        font-size: 32px;
+    }
+    .td_name{
+        font-family: Osaka;
+        font-size: 14px;
+        color: black;
+        padding-left: 30px;
+    }
+    .td_price{
+        font-family: "Avenir Next Condensed";
+        font-size: 22px;
+        color: orangered;
+        padding-left: 10px;
+    }
+    /*盒子浮动效果*/
+    .mydiv {
+
+        background: #fff;
+
+        color: #333;
+
+        filter: progid:DXImageTransform.Microsoft.Shadow(color=#909090, direction=120, strength=4);
+
+        -moz-box-shadow: 2px 2px 10px #909090;
+
+        -webkit-box-shadow: 2px 2px 10px #909090;
+
+        box-shadow: 2px 2px 10px #909090;
+        transition: .8s all;
+    }
+    #body{
+        margin-top: 200px;
+        margin-left: 80px;
+    }
+    .page_menu{
+        text-align: center;
+    }
+    .footer {
+        width: 100%;
+        background-color: #fff;
+    }
+</style>
+</head>
+<body style="background-color: #f3f3f3;">
+{% include "index/head.html" %}
+<div id="body" class="container-fluid">
+    <span class="title">热门商品</span>
+    <table style="padding-top: 30px;">
+        <tbody>
+        {% for row in page %}   {# 计算统计， 每5个数据换行#}
+            {% if forloop.counter0|divisibleby:"4" %}
+                <tr>
+                <td>
+                    <div class="td">
+                        <a href="#">
+                            <img src="{{row.img_name}}" class="store_img"/>
+                            <p class="td_name">{{ row.commodity_name }}</p>
+                            <p class="td_price">¥{{ row.price }}</p>
+                        </a>
+                    </div>
+                </td>
+            {% else %}
+                <td>
+                    <div class="td">
+                        <a href="#">
+                            <img src="{{ row.img_name }}" class="store_img"/>
+                            <p class="td_name">{{ row.commodity_name }}</p>
+                            <p class="td_price">¥{{ row.price }}</p>
+                        </a>
+                    </div>
+
+                </td>
+            {% endif %}
+        {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+
+    {# 分页导航 #}
+    <nav class="page_menu">
+        <ul class="pagination">
+            <li class="step-links">
+                {% if page.has_previous %}                                       <!--传入search参数，用于分页查询-->
+                    <a class="active" href="?page={{ page.previous_page_number }}&&search={{ search_name }}">上一页</a>
+                {% endif %}
+            </li>
+            {% for i in page.paginator.page_range %} {# 生成导航标签页码 #}
+                {% if page.number == i %}
+                    <li class="active"><a href="?page={{ i }}&&search={{ search_name }}">{{ i }}</a></li>
+                {% else %}
+                    <li><a href="?page={{ i }}&&search={{ search_name }}">{{ i }}</a></li>
+                {% endif %}
+            {% endfor %}
+
+            <li class="step-links">
+                {% if page.has_next %}
+                    <a class='active' href="?page={{ page.next_page_number }}&&search={{ search_name }}">下一页</a>
+                {% endif %}
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="footer">
+{% include "index/bottom.html"%}
+</div>
+</body>
+<script src="/static/js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+    $(function (){
+        $(".td").mouseover(function (){
+            $(this).addClass("mydiv");
+        })
+        $(".td").mouseout(function (){
+            $(this).removeClass("mydiv")
+        })
+    })
+</script>
+</html>

@@ -1,0 +1,130 @@
+
+    <style>
+        .td{
+            width: 230px;
+            height: 250px;
+            background: #fff;
+            text-align: center;
+
+        }
+        td{
+            padding-right: 30px;
+        }
+        .store_img{
+            width: 180px;
+            height: 180px;
+        }
+        tr{
+            display:block;
+            margin-bottom:20px;
+        }
+        .title{
+            font-size: 32px;
+            margin-left: 80px;
+        }
+        .td_name{
+            font-family: Osaka;
+            font-size: 14px;
+            color: black;
+        }
+        .td_price{
+            font-family: "Avenir Next Condensed";
+            font-size: 22px;
+            color: orangered;
+        }
+        /*盒子浮动效果*/
+        .td:hover{
+            transform: translateY(-5px);
+            transition: .5s all;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+        }
+        #body{
+            width: 100%;
+            position: absolute;
+            top: 760px;
+            background-color: #f3f3f3;
+        }
+        table{
+            margin-left: 80px;
+        }
+        #body .ljimg{
+            margin-left: 80px;
+            height: 200px;
+            width: 1270px;
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+    </style>
+    <div id="body">
+        <!-- note9图片 -->
+        <img src="/static/img/note9.webp" class="ljimg">
+        <br/>
+    <span class="title">热门商品</span>
+    <table style="padding-top: 30px;">
+        <tbody>
+            {% for row in hot_li %}   {# 计算统计， 每5个数据换行#}
+                {% if forloop.counter0|divisibleby:"5" %}
+                    <tr>
+                        <td>
+                            <div class="td">
+                                <a href="#">
+                                    <img src="{{row.img_name}}" class="store_img"/>
+                                    <p class="td_name">{{ row.commodity_name }}</p>
+                                    <p class="td_price">¥{{ row.price }}</p>
+                                </a>
+                            </div>
+                        </td>
+                {% else %}
+                    <td>
+                            <div class="td">
+                                <a href="#">
+                                <img src="{{ row.img_name }}" class="store_img"/>
+                                <p class="td_name">{{ row.commodity_name }}</p>
+                                <p class="td_price">¥{{ row.price }}</p>
+                                </a>
+                            </div>
+
+                    </td>
+                {% endif %}
+            {% endfor %}
+                    </tr>
+        </tbody>
+    </table>
+<!-- 雷军图片 -->
+    <img src="/static/img/雷军讲述.png" class="ljimg">
+    <br/>
+<span class="title">店主推荐</span>
+<table style="padding-top: 30px">
+    <tbody>
+    {% for row in spk_li %}   {# 计算统计， 每5个数据换行#}
+        {% if forloop.counter0|divisibleby:"5" %}
+            <tr>
+            <td>
+                <div class="td">
+                    <a href="#">
+                        <img src="{{row.img_name}}" class="store_img"/>
+                        <p class="td_name">{{ row.commodity_name }}</p>
+                        <p class="td_price">¥{{ row.price }}</p>
+                    </a>
+                </div>
+
+            </td>
+        {% else %}
+            <td>
+                <div class="td">
+                    <a href="#">
+                        <img src="{{row.img_name}}" class="store_img"/>
+                    <p class="td_name">{{ row.commodity_name }}</p>
+                    <p class="td_price">¥{{ row.price }}</p>
+                    </a>
+                </div>
+
+            </td>
+        {% endif %}
+    {% endfor %}
+    </tr>
+    </tbody>
+    </table>
+    </div>
+

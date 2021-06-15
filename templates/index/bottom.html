@@ -1,0 +1,318 @@
+<style>
+    /*--------------------------------weixiu*/
+    .weixiu {
+        height: 79px;
+        border-bottom: 1px solid #E0E0E0;
+    }
+
+    .weixiu li {
+        float: left;
+        height: 79px;
+        line-height: 79px;
+        font-size: 16px;
+    }
+
+    .weixiu a {
+        float: left;
+        padding: 0 70px;
+        color: #616161;
+    }
+
+    .seu {
+        float: left;
+        color: #E0E0E0;
+    }
+
+    .weixiu a:hover {
+        color: #ff6700;
+    }
+
+
+    /*------------------------------------------*/
+
+
+    /*----------------------------------------fuwu*/
+
+    .fuwu {
+        height: 192px;
+    }
+
+    .fu-le {
+        float: left;
+        height: 192px;
+        width: 1100px;
+    }
+
+    .fu-le dl {
+        float: left;
+        font-size: 12px;
+        padding-left: 20px;
+    }
+
+    .fu-le dt {
+        padding: 42px 104px 32px 0;
+    }
+
+    .fu-le dt a {
+        color: #424242;
+    }
+
+    .fu-le dd {
+        padding-bottom: 16px;
+    }
+
+    .fu-le dd a {
+        color: #757575;
+    }
+
+    .fu-le a:hover {
+        color: #ff6700;
+    }
+
+    .fu-ri {
+        text-align: center;
+    }
+
+    .fu-ri h4 {
+        padding: 42px 0 14px 0;
+        font-size: 18px;
+        color: #ff6700;
+        font-weight: 400;
+    }
+
+    .fu-ri p {
+        margin-bottom: 6px;
+        font-size: 12px;
+        color: #757575;
+    }
+
+    .fu-ri a {
+        display: inline-block;
+        margin-top: 20px;
+        height: 28px;
+        line-height: 28px;
+        width: 118px;
+        font-size: 14px;
+        color: #ff6700;
+        border: 1px solid #ff6700;
+    }
+
+    .fu-ri a:hover {
+        background-color: #ff6700;
+        color: #fff;
+    }
+
+
+    /*------------------------------------------------*/
+
+
+    /*------------------------------------------------copyright*/
+
+    .copyright {
+        height: 55px;
+        padding: 40px 10px 0 0;
+    }
+
+    .logo {
+        float: left;
+        width: 55px;
+        height: 65px;
+    }
+
+    .co-nav {
+        float: left;
+        padding-left: 10px;
+        width: 688px;
+        height: 55px;
+    }
+
+    .co-nav a,
+    .co-nav span,
+    .co-nav p {
+        font-size: 12px;
+    }
+
+    .co-nav a,
+    .co-nav span {
+        color: #757575;
+    }
+
+    .co-nav p {
+        color: #B0B0B0;
+    }
+
+    .co-img {
+        height: 55px;
+        width: 538px;
+    }
+
+    .co-img img {
+        width: 83px;
+        height: 28px;
+    }
+
+
+    /*-----------------------------------------------*/
+
+    .xiaomi {
+        text-align: center;
+        height: 80px;
+        line-height: 80px;
+    }
+
+    .xiaomi h4 {
+        font-size: 18px;
+        font-weight: 400;
+        font-family: "楷体";
+        color: #BEBEBE;
+    }
+    /* 初始化样式文件 */
+
+
+    /* 把我们所有标签的内外边距清零 */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    /* em 和 i 斜体的文字不倾斜 */
+
+    em,
+    i {
+        font-style: normal
+    }
+
+
+    /* 去掉li 的小圆点 */
+
+    li {
+        list-style: none
+    }
+
+    img {
+        /* border 0 照顾低版本浏览器 如果 图片外面包含了链接会有边框的问题 */
+        border: 0;
+        /* 取消图片底侧有空白缝隙的问题 */
+        vertical-align: middle
+    }
+
+    button {
+        /* 当我们鼠标经过button 按钮的时候，鼠标变成小手 */
+        cursor: pointer
+    }
+
+    a {
+        cursor: pointer;
+        /* 把所有的a标签下划线 取消*/
+        text-decoration: none
+    }
+    button,
+    input {
+        /* "\5B8B\4F53" 就是宋体的意思 这样浏览器兼容性比较好 */
+        font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+        border: 0;
+        outline: none;
+    }
+
+    body {
+        /* CSS3 抗锯齿形 让文字显示的更加清晰 */
+        -webkit-font-smoothing: antialiased;
+        background-color: #fff;
+        font: 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+        color: #666
+    }
+
+
+</style>
+    <!-- weixiu -->
+    <div class="weixiu w">
+        <ul>
+            <li><a href="#">预约维修服务</a><span class="seu">|</span></li>
+            <li><a href="#">7天无理由退货</a><span class="seu">|</span></li>
+            <li><a href="#">15天免费换货</a><span class="seu">|</span></li>
+            <li><a href="#">满150包邮</a><span class="seu">|</span></li>
+            <li><a href="#">520余家售后网点</a></li>
+        </ul>
+    </div>
+
+    <!-- fuwu -->
+    <div class="fuwu w">
+
+        <div class="fu-le">
+            <dl>
+                <dt><a href="#">帮助中心</a></dt>
+                <dd><a href="#">账户管理</a></dd>
+                <dd><a href="#">购物指南</a></dd>
+                <dd><a href="#">订单操作</a></dd>
+            </dl>
+            <dl>
+                <dt><a href="#">服务支持</a></dt>
+                <dd><a href="#">售后政策</a></dd>
+                <dd><a href="#">自助服务</a></dd>
+                <dd><a href="#">相关下载</a></dd>
+            </dl>
+            <dl>
+                <dt><a href="#">线下门店</a></dt>
+                <dd><a href="#">小米之家</a></dd>
+                <dd><a href="#">服务网点</a></dd>
+                <dd><a href="#">授权体验店</a></dd>
+            </dl>
+            <dl>
+                <dt><a href="#">关于小米</a></dt>
+                <dd><a href="#">了解小米</a></dd>
+                <dd><a href="#">加入小米</a></dd>
+                <dd><a href="#">投资者关系</a></dd>
+            </dl>
+            <dl>
+                <dt><a href="#">关注我们</a></dt>
+                <dd><a href="#">新浪微博</a></dd>
+                <dd><a href="#">官方微信</a></dd>
+                <dd><a href="#">联系我们</a></dd>
+            </dl>
+            <dl>
+                <dt><a href="#">特色服务</a></dt>
+                <dd><a href="#">F码通道</a></dd>
+                <dd><a href="#">礼物码</a></dd>
+                <dd><a href="#">防伪查询</a></dd>
+            </dl>
+        </div>
+
+        <div class="fu-ri">
+            <h4>400-100-5678</h4>
+            <p>周一至周日 8:00-18:00 </p>
+            <p>(仅收市话费)</p>
+            <a href="#">联系客服</a>
+        </div>
+    </div>
+
+    <!-- copyright -->
+    <div class="copyright w">
+        <div class="logo">
+            <img src="/static/img/小米logo.jpeg" class="logo">
+        </div>
+        <div class="co-nav">
+            <a href="#">小米商城</a><span>|</span>
+            <a href="#">MIUI</a><span>|</span>
+            <a href="#">米家</a><span>|</span>
+            <a href="#">米聊</a><span>|</span>
+            <a href="#">多看</a><span>|</span>
+            <a href="#">游戏</a><span>|</span>
+            <a href="#">路由器</a><span>|</span>
+            <a href="#">米粉卡</a><span>|</span>
+            <a href="#">政企服务</a><span>|</span>
+            <a href="#">小米天猫店</a><span>|</span>
+            <a href="#">隐私政策</a><span>|</span>
+            <a href="#">问题反馈</a><span>|</span>
+            <a href="#">廉政举报</a><span>|</span>
+            <a href="#">Select Region</a><br>
+            <p>@mi.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2017]1530-131号 <br> 违法和不良信息举报电话: 185-0130-1238, 本网站所列数据,除特殊说明,所有数据均出自我司实验室测试</p>
+        </div>
+    </div>
+
+    <!-- end -->
+    <div class="xiaomi w">
+        <h4>探索黑科技,小米为发烧而生! </h4>
+    </div>

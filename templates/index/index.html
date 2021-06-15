@@ -1,0 +1,54 @@
+
+<style>
+    #c_type{
+        height: 550px;
+        position: absolute;
+        top: 200px;
+        left: 80px;
+        width: 280px;
+        background-color: #343232;
+        opacity: 0.8;
+    }
+    .type_num > span{
+        padding-left: 70px;
+        color: white;
+        font-size: 16px;
+    }
+    .type_num{
+        height: 50px;
+        border-bottom:1px solid silver;
+    }
+    .type_num:hover{
+        background-color: #ff6700;
+    }
+    .footer {
+        width: 100%;
+        background-color: #fff;
+        margin-top:200px;
+        position: relative;
+        top: 2230px;
+    }
+</style>
+<body>
+<div>
+{% include "index/head.html" %} <!--头-->
+</div>
+<div style="display: block">
+    {% include "index/lunbo.html" %} <!--轮播图-->
+    <div id="c_type">
+    {% for i in com_type %}
+        <a href="{% url "index:search" %}?type={{ i.type_name }}">
+            <div class="type_num">
+                <br/>
+                <span>{{ i.type_name }}</span>
+            </div>
+        </a>
+    {% endfor %}
+    </div>
+
+</div>
+{% include "index/body.html" %}
+<div class="footer">
+    {% include "index/bottom.html"%}
+</div>
+</body>

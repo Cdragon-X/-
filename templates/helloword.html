@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.4.1-dist/css/bootstrap.min.css"/>
+    <style>
+        .body{
+            position: relative;
+            /*自适应铺满整个屏幕*/
+            background-size:cover;
+            -webkit-background-size: cover;
+            -o-background-size: cover;
+            min-width: 1000px;  /*1000以内屏幕不缩放*/
+            min-height: 1000px;
+            background-image: url("/static/img/4071622810753_.pic_hd.jpg");
+            height: 100%;
+            width: 100%;
+        }
+        .body-son{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+        }
+        .navbar-nav>li{
+            list-style: none;
+            padding-left: 30px;
+        }
+        .navbar-nav>li>a{
+            font-size: 24px;
+            color: #ffffff;
+            text-decoration: none;
+            position: relative;
+        }
+        .navbar-nav>li>a:after{
+            content:'';
+            display:block;
+            /*开始时候下划线的宽度为0*/
+            width:0;
+            height:3px;
+            position:absolute;
+            left:0;
+            bottom:-10px;
+            background:#2aabd2;
+            /*这里我们设定所有改变都有动画效果，可以自己指定样式才有动画效果*/
+            transition:0.5s ease-in-out;
+        }
+        .navbar-nav>li>a:hover:after{
+            width:100%;
+        }
+
+        .navbar{
+            margin-left: 25px;
+            margin-top: 40px;
+        }
+        button{
+            width: 200px;
+            padding:20px 0;
+            text-align: center;
+            margin:20px 10px;
+            border-radius: 25px;
+            font-weight:bold;
+            border:2px solid #009688;
+            background:transparent;
+            /* 背景透明无颜色 */
+            color:white;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        span{
+            background: #009688;
+            height:100%;
+            width:0;
+            border-radius: 26px;
+            position: absolute;
+            left:0;
+            bottom:0;
+            z-index:-1;
+            transition:0.5s;
+        }
+        button:hover span{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="body">
+<div class="body-son">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Vontact us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <div style="padding-top: 10%; text-align: center">
+    <p style="color: white;font-size: 80px">CHOOSE YOUR CAR</p>
+    <p style="color: white;font-size: 18px">BUY YOUR CARCHERSH YOUR DREAM</p>
+        <button style="margin-right: 20px;"><span></span>WATCH MORE</button>
+    <button style="margin-left: 20px;"><span></span>BUT IT</button>
+    </div>
+</div>
+</div>
+</body>
+</html>

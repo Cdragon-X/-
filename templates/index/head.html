@@ -1,0 +1,314 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小米商城导航条示例</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.4.1-dist/css/bootstrap.min.css"/>
+    <style>
+
+        /* 全局通用的样式，去除浏览器默认的内边距和外边距 */
+        * {
+            margin: 0; /* 去除浏览器默认的margin和padding */
+            padding: 0;
+        }
+
+        /* 将ul前面的原点去除 */
+        ul {
+            list-style-type: none; /* 将ul列表前面的小圆点去掉 */
+        }
+
+        /* 去除a标签的下划线 */
+        a {
+            text-decoration-line: none;
+        }
+
+        /* 设置li左浮动，每个li标签的右面有15个像素点 */
+        .nav-left > ul > li {
+            float: left;
+            padding-right: 15px;
+
+        }
+
+        /* 设置a标签字体颜色为白色 */
+        .nav-left > ul > li > a {
+            color: white;
+        }
+
+        /* 设置登录、注册、购物车的div标签为右浮动 */
+        .nav-right {
+            float: right;
+            /*padding-right: 15px;*/
+        }
+
+        /* 设置div标签下的a标签每个a标签的右面有15px的内边距 */
+        .nav-right > a {
+            padding-right: 15px;
+            color: white;   /* 设置a标签字体颜色为白色 */
+        }
+
+        /* 设置整个导航栏的背景颜色 */
+        .nav {
+            background-color: #343232;
+            font-family: "Apple Braille";
+        }
+
+        /* 目的为了撑起来，因为孩子全都是浮动的，都脱离了文档流，所以要增加一个伪元素的孩子，这个孩子的左右不能有浮动，所以就将标签撑起来了 */
+        .clearfix:after, /* 增加伪元素，在内容的后面增加 */
+        .clearfix:before { /* 增加伪元素，在内容的前面增加 */
+            clear: both; /* 左右都不能有浮动 */
+            content: '';
+            display: block; /* 变成块级标签 */
+        }
+
+        .temp {
+            width: 90%; /* 只占父标签的百分之90的宽度 */
+            margin: 0 auto;
+            padding: 12px;
+        }
+        .menu{
+            height: 135px;
+            background-color: white;
+        }
+        .menu-center{
+            width: 80%;
+        }
+        /* 设置菜单栏样式*/
+        .menu-center ul > li > a{
+            font-size: 18px;
+            padding-right: 15px;
+            color: black;   /* 设置a标签字体颜色为黑色 */
+        }
+        /* 设置li左浮动，每个li标签的右面有15个像素点 */
+        .menu-center > ul > li {
+            float: left;
+            padding-right: 15px;
+            height: 90px;
+        }
+        .menu-center > ul{
+            padding-top: 40px;
+            padding-left: 290px;
+        }
+        /*搜索框样式*/
+        .SearchBox{
+            font-size: 16px;
+            color: #ff6700;
+            height:50px;
+            width:190px;
+            border:1px solid #e0e0e0;
+            vertical-align:middle;
+            border-right: none;
+        }
+        .SearchBtn{
+            font-size: 16px;
+            color: black;
+            height:50px;
+            width:50px;
+            border:1px solid #e0e0e0;
+            background:transparent;
+            vertical-align:middle;
+            position:relative;
+            line-height:50px;
+            padding:3px;
+        }
+        #search_inp{
+            position: absolute;
+            top: 82px;
+            right: 80px;
+        }
+        @media screen and (max-width: 1200px) {
+            .menu-center{display: none}
+            .nav-right{display: none}
+            #search_inp{text-align: center}
+        }
+    </style>
+    <script src="/static/js/jquery-3.5.1.js"></script>
+    <link rel="shortcut icon" href="/static/img/bitbug_favicon.ico" />
+</head>
+<body>
+<div id="all_menu" class="navbar-fixed-top">
+<!-- 导航栏 -->
+<div class="nav">
+    <div class="temp clearfix">  <!-- 让nav里的内容只占nav的多少多少 -->
+        <div class="col-lg-9 nav-left">
+            <ul>
+                <li><a href="{% url "index:login" %}">电子商城</a> ｜</li>
+                <li><a href="#">云服务</a> ｜</li>
+                <li><a href="#">小米知道</a> ｜</li>
+                <li><a href="#">小爱</a> ｜</li>
+                <li><a href="#">客服</a> ｜</li>
+                <li><a href="#">企业团购</a> ｜</li>
+                <li><a href="#">营业执照</a> ｜</li>
+                <li><a href="#">联系我们</a> ｜</li>
+            </ul>
+        </div>
+        <div class="col-lg-3 nav-right">
+            {% if username %}
+                <a href="#">您好！{{ username }}</a>
+            {% else %}
+                <a href="{% url "index:login" %}">登录</a>
+            {% endif %}
+            <a href="{% url "index:register" %}">注册</a>
+            <a href="?name={{ username }}">个人中心</a>
+            <a href="{% url "index:change_user" %}">切换账号</a>
+        </div>
+    </div>
+</div>
+
+<!--菜单栏-->
+<div class="menu">
+    <div class="temp clearfix">
+        <img src="/static/img/小米logo.jpeg" style="height: 100px; width: 100px; position: absolute"/>
+
+        <div class="menu-center">
+            <ul>
+                <li><a href="#">手机</a></li>
+                <li><a href="#">平板</a></li>
+                <li><a href="#">笔记本电脑</a></li>
+                <li><a href="#">游戏机</a></li>
+                <li><a href="#">台式电脑</a></li>
+                <li><a href="#">音箱</a></li>
+                <li><a href="#">热门商品</a></li>
+            </ul>
+        </div>
+        <!--搜索输入框-->
+        <div id="search_inp">
+            <form method="get" action="{% url "index:search" %}">
+                {% csrf_token %}
+                <label for="search">
+                    <input type="text" class="SearchBox" name="search" placeholder="搜索...">
+                </label>
+                <button type="submit" class="SearchBtn" id="search_sub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>  <!--隐藏起来的盒子-->
+<div class="sou">
+    <div class="big-box">
+        <div class="w">
+        <ul style="margin-left: 100px">
+
+        </ul>
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+<script type="text/javascript">
+    // 顶部导航经过事件
+    $(".nav a").mouseover(function(){
+        $(this).css("color","#ff6700")
+    })
+    $(".nav a").mouseout(function(){
+        $(this).css("color","white")
+    });
+    // 菜单栏经过事件
+    $(".menu a").mouseover(function(){
+        $(this).css("color","#ff6700")
+    })
+    $(".menu a").mouseout(function(){
+        $(this).css("color","black")
+    });
+    // 搜索框鼠标经过事件
+    $("#search_sub").mouseover(function (){
+        $(this).css("background-color","#ff6700")
+        $(this).css("color","white")
+    })
+    $("#search_sub").mouseout(function (){
+        $(this).css("background-color","white")
+        $(this).css("color","black")
+    })
+    // 占位符方法
+    String.prototype.format = function (dict){
+        var str = this.replace(new RegExp("\\{" + 0 + "\\}", "gm"), dict.img_name);
+        var str = str.replace(new RegExp("\\{" + 2 + "\\}", "gm"), dict.price);
+        return str;
+
+    }
+    // li的悬浮事件
+    $(".menu-center ul li").on({
+        mouseover:function(){
+            // 获取当前li的html,然后找到对应的图片追加至节点盒子下拉
+            var type_name = $(this).text()
+            $.ajax({
+                url:"/index/slideDown",
+                type:"GET",
+                data:{"type_name":type_name},
+                success:function (data){
+                    var new_data = JSON.parse(data)
+                    // 将获取出来的数据添加至box
+                    for(var i = 0; i < new_data.length; i++) {
+                        var ch_node ='<li>'+'<a href="javascript:;">'
+                        +'<div class="img">'+'<img src="{0}" alt=""/>'+'</div>'
+                        +'<p class="jiage">'+"¥{2}"+'</p>'
+                        +'</a>'+'</li>'
+                        $(".big-box ul").append(ch_node.format(new_data[i]))
+                    }
+                }
+            })
+            $(".big-box").stop().slideDown("linear");
+        },
+        mouseout:function(){
+            console.log("aa")
+            $(".big-box ul").children().remove()
+            $(".big-box").stop().slideUp();
+        }
+
+    });
+
+</script>
+<style>
+    .sou{
+        position: relative;
+    }
+    .big-box {
+        position: absolute;
+        width: 100%;
+        height: 250px;
+        border-top: 1px solid #ccc;
+        box-shadow: 0px 8px 10px rgba(0, 0, 0, .5);
+        display: none;
+        background-color: #FFFFFF;
+        z-index: 100;
+    }
+
+    .big-box .w {
+        height: 250px;
+    }
+
+    .big-box li {
+        float: left;
+        width: 200px;
+        height: 250px;
+        padding-left: 40px;
+        text-align: center;
+
+    }
+
+    .img {
+        width: 200px;
+        height: 150px;
+        border-right: 1px solid #E0E0E0;
+    }
+
+    .img img {
+        width: 197px;
+    }
+
+    .last {
+        border: 0;
+    }
+
+    .text {
+        margin-top: 10px;
+        font-size: 14px;
+    }
+
+    .jiage {
+        font-size: 18px;
+        color: #FF4500;
+        margin-top: 60px;
+    }
+</style>
